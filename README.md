@@ -1,32 +1,31 @@
-<p align="center">
-  <img src="assets/eduportfolio-hero.svg" alt="EduPortfolio Vision Hub animated overview" width="100%" />
-</p>
+# 🎓 EduPortfolio Vision Hub
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Java-21-0b1726?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java 21" />
-  <img src="https://img.shields.io/badge/Spring%20Boot-3.3.4-0b1726?style=for-the-badge&logo=springboot&logoColor=white" alt="Spring Boot 3.3.4" />
-  <img src="https://img.shields.io/badge/JSP-Server%20Rendered%20UI-0b1726?style=for-the-badge" alt="JSP" />
-  <img src="https://img.shields.io/badge/MySQL-Database-0b1726?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
-  <img src="https://img.shields.io/badge/JPA-Hibernate-0b1726?style=for-the-badge" alt="JPA Hibernate" />
-  <img src="https://img.shields.io/badge/Maven-Wrapped-0b1726?style=for-the-badge&logo=apachemaven&logoColor=white" alt="Maven Wrapper" />
-  <img src="https://img.shields.io/badge/license-MIT-0b1726?style=for-the-badge" alt="MIT License" />
-</p>
+**ACADEMIC WORKSPACE · ROLE MATRIX · PROJECT REVIEW**
 
-<h1 align="center">🎓 EduPortfolio Vision Hub</h1>
+<table>
+<tr>
+<td width="60%">
+<img src="assets/eduportfolio-hero.svg" alt="EduPortfolio academic workspace" width="100%" />
+</td>
+<td width="40%">
 
-<p align="center">
-  A role-based academic project and portfolio management portal for <strong>students, faculty, and administrators</strong>.
-  <br/>
-  Built with Spring Boot, JSP, Spring Data JPA, MySQL, and session-driven workflows.
-</p>
+### WHO OWNS WHAT?
 
-> **Implementation note:** the repository ships a JSP-based Spring MVC frontend. The old README mentioned an optional React frontend, but there is no React application in the current codebase.
+| Role | Focus |
+|---|---|
+| 🎓 Student | project + portfolio |
+| 🧑‍🏫 Faculty | review + feedback |
+| 🛡️ Admin | users + status |
 
-<p align="center">
-  <img src="assets/eduportfolio-role-flow.svg" alt="Student, faculty, and admin workflow" width="100%" />
-</p>
+</td>
+</tr>
+</table>
 
-## ✨ What the application actually does
+> **Implementation note:** the shipped frontend is **JSP + Spring MVC**. There is no React application in the current repository.
+
+---
+
+## 01 · Academic workflow
 
 EduPortfolio Vision Hub is built around three roles and a simple academic-content lifecycle.
 
