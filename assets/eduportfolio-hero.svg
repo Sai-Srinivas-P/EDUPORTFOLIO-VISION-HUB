@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+<defs><linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#071225"/><stop offset=".55" stop-color="#102a46"/><stop offset="1" stop-color="#18204a"/></linearGradient><linearGradient id="a" x1="0" x2="1"><stop stop-color="#5ee7ff"/><stop offset="1" stop-color="#8b7cff"/></linearGradient><filter id="g"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<rect width="1200" height="520" rx="28" fill="url(#bg)"/>
+<g opacity=".14" stroke="#82a8c9"><path d="M40 105H1160M40 175H1160M40 245H1160M40 315H1160M40 385H1160"/><path d="M120 40V470M240 40V470M360 40V470M480 40V470M600 40V470M720 40V470M840 40V470M960 40V470M1080 40V470"/></g>
+<text x="54" y="58" fill="#f5f9ff" font-family="Arial" font-size="33" font-weight="700">EDUPORTFOLIO VISION HUB</text>
+<text x="56" y="87" fill="#a9bfd2" font-family="Arial" font-size="15">Student portfolios · projects · faculty feedback · institutional administration</text>
+<rect x="55" y="112" width="1090" height="52" rx="14" fill="#0b1b2e" stroke="#29486a"/>
+<text x="78" y="144" fill="#5ee7ff" font-family="Arial" font-size="16" font-weight="700">PORTFOLIO PIPELINE</text>
+<text x="256" y="144" fill="#eef6ff" font-family="Arial" font-size="15">Student → Project → Faculty Review → Feedback → Portfolio Showcase</text>
+<circle cx="1080" cy="138" r="8" fill="#5ee7ff" filter="url(#g)"><animate attributeName="r" values="7;16;7" dur="1.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;.2;1" dur="1.5s" repeatCount="indefinite"/></circle>
+<!-- dashboard cards -->
+<g font-family="Arial">
+<g transform="translate(55 205)"><rect width="310" height="130" rx="18" fill="#0b1c30" stroke="#335779"/><text x="24" y="34" fill="#5ee7ff" font-size="13" font-weight="700">STUDENT</text><text x="24" y="62" fill="#f5f9ff" font-size="20" font-weight="700">Build a portfolio</text><text x="24" y="88" fill="#a9bfd2" font-size="13">Update profile · submit projects</text><text x="24" y="110" fill="#a9bfd2" font-size="13">upload portfolio file · view feedback</text></g>
+<g transform="translate(445 205)"><rect width="310" height="130" rx="18" fill="#101d35" stroke="#4d6090"/><text x="24" y="34" fill="#8b7cff" font-size="13" font-weight="700">FACULTY</text><text x="24" y="62" fill="#f5f9ff" font-size="20" font-weight="700">Guide &amp; review</text><text x="24" y="88" fill="#b4bed1" font-size="13">View assigned projects</text><text x="24" y="110" fill="#b4bed1" font-size="13">submit feedback · maintain profile</text></g>
+<g transform="translate(835 205)"><rect width="310" height="130" rx="18" fill="#12203b" stroke="#3d6582"/><text x="24" y="34" fill="#64e3b3" font-size="13" font-weight="700">ADMIN</text><text x="24" y="62" fill="#f5f9ff" font-size="20" font-weight="700">Manage the hub</text><text x="24" y="88" fill="#afc5d1" font-size="13">Register users · approve status</text><text x="24" y="110" fill="#afc5d1" font-size="13">review lists · delete records</text></g>
+</g>
+<!-- animated progress -->
+<g transform="translate(55 378)" font-family="Arial">
+<text x="0" y="0" fill="#eef6ff" font-size="13" font-weight="700">ACADEMIC PROGRESS STREAM</text>
+<path d="M0 40H1090" stroke="#29445d" stroke-width="5"/>
+<circle cx="90" cy="40" r="7" fill="#5ee7ff" filter="url(#g)"><animate attributeName="cx" values="90;1000;90" dur="5s" repeatCount="indefinite"/></circle>
+<g fill="#8daac1" font-size="11"><text x="0" y="68">REGISTER</text><text x="235" y="68">PROJECT</text><text x="465" y="68">REVIEW</text><text x="700" y="68">FEEDBACK</text><text x="940" y="68">PORTFOLIO</text></g>
+</g>
+<rect x="55" y="447" width="1090" height="40" rx="11" fill="#0b1b2e" stroke="#29486a"/>
+<text x="78" y="472" fill="#ffcf67" font-family="Arial" font-size="12" font-weight="700">IMPLEMENTATION NOTE</text>
+<text x="252" y="472" fill="#a9bfd2" font-family="Arial" font-size="12">The shipped UI is JSP + Spring MVC; the repository does not contain a React frontend.</text>
+</svg>
