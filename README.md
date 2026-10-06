@@ -1,68 +1,435 @@
-**Project Title: EDUPORTFOLIO VISION HUB**
+<p align="center">
+  <img src="assets/eduportfolio-hero.svg" alt="EduPortfolio Vision Hub animated overview" width="100%" />
+</p>
 
-**Project Overview:**
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-21-0b1726?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java 21" />
+  <img src="https://img.shields.io/badge/Spring%20Boot-3.3.4-0b1726?style=for-the-badge&logo=springboot&logoColor=white" alt="Spring Boot 3.3.4" />
+  <img src="https://img.shields.io/badge/JSP-Server%20Rendered%20UI-0b1726?style=for-the-badge" alt="JSP" />
+  <img src="https://img.shields.io/badge/MySQL-Database-0b1726?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+  <img src="https://img.shields.io/badge/JPA-Hibernate-0b1726?style=for-the-badge" alt="JPA Hibernate" />
+  <img src="https://img.shields.io/badge/Maven-Wrapped-0b1726?style=for-the-badge&logo=apachemaven&logoColor=white" alt="Maven Wrapper" />
+  <img src="https://img.shields.io/badge/license-MIT-0b1726?style=for-the-badge" alt="MIT License" />
+</p>
 
-EduPortfolio Vision Hub is a web-based application designed to help students showcase their projects and portfolios while allowing teachers or institutions to monitor, manage, and provide feedback on student progress. This platform provides an interactive and user-friendly solution for tracking project milestones, uploading media files, and presenting student achievements in an organized manner.
+<h1 align="center">🎓 EduPortfolio Vision Hub</h1>
 
-The application features 3 roles: Admin (Institution), Teacher, and User (Student). The Admin can add teachers and students, manage their profiles, review all CRUD operations, and accept or reject entries. The Teacher can update their profile, view the projects and portfolios of assigned students, and provide feedback. The Student can update their profile, upload projects and portfolios, and manage updates for both. This system ensures streamlined workflows and effective collaboration between students, teachers, and administrators.
+<p align="center">
+  A role-based academic project and portfolio management portal for <strong>students, faculty, and administrators</strong>.
+  <br/>
+  Built with Spring Boot, JSP, Spring Data JPA, MySQL, and session-driven workflows.
+</p>
 
-This project leverages Spring Boot for the backend, MySQL for database management, and JSP (Java Server Pages) for the frontend, with an optional integration of React for a modern, dynamic UI experience. The robust tech stack ensures scalability, security, and efficiency, making it suitable for deployment in real-world educational institutions.
+> **Implementation note:** the repository ships a JSP-based Spring MVC frontend. The old README mentioned an optional React frontend, but there is no React application in the current codebase.
 
-**Key Features:**
+<p align="center">
+  <img src="assets/eduportfolio-role-flow.svg" alt="Student, faculty, and admin workflow" width="100%" />
+</p>
 
-- Track milestones and progress for ongoing projects
-- Secure authentication for Admins and Users
-- Real-time tracking of project statuses
-- Room Inventory Management
-- Responsive and accessible design
-- Reporting and Analytics
+## ✨ What the application actually does
 
-**Technologies Used:**
+EduPortfolio Vision Hub is built around three roles and a simple academic-content lifecycle.
 
-* Backend : Spring Boot (Java Framework).
-* Frontend: JSP (Java Server Pages) and optional integration of React for an enhanced UI.
-* Database: MySQL (Relational Database Management System).
+### 👨‍🎓 Student
 
-**Tools & Libraries:**
+Students can:
 
-* Eclipse IDE for Enterprise Java and Web Developers (2024-06)
-* MySQL Workbench
-* Visual Studio Code (VSCode) 
-* Spring Security for authentication and authorization.
-* Hibernate ORM for database operations.
-* Bootstrap for responsive UI.
-* Optional: Axios and React Router for frontend state management.
+- register and log in;
+- maintain their profile;
+- submit projects with project number, name, description, URL, and selected faculty;
+- view their own projects;
+- submit a portfolio containing role, skills, and an uploaded file;
+- view portfolio records;
+- view faculty feedback attached to projects.
 
-**Target Audience:**
+### 👩‍🏫 Faculty
 
-- Primary Users: Students who want to maintain professional portfolios and showcase their academic or personal projects.
-- Secondary Users: Teachers, mentors, and institutions aiming to manage and monitor student progress effectively.
+Faculty users can:
 
-**How to run:**
+- register and log in;
+- maintain their profile;
+- view projects associated with them;
+- provide project feedback.
 
-- Download the project ZIP file from the repository.
-- Extract the downloaded ZIP file to a preferred location on your system.
-- Open the extracted folder in your preferred code editor (e.g., Eclipse, Visual Studio Code, Sublime Text, Atom).
-- Open a terminal or command prompt within the project directory.
-- Or you can clone the repository using:
-     ```
-     git clone https://github.com/Sai-Developer-1405/EDUPORTFOLIO-VISION-HUB.git
-     cd EDUPORTFOLIO-VISION-HUB
-     ```
-- Set Up Backend:
-  - Ensure Java 18+ and Spring Tool Suite (STS) are installed.
-  - Import the project into Eclipse IDE for Enterprise Java and Web Developers (2024-06).
-  - Configure the MySQL Database in the application.properties file
-    ```
-    spring.datasource.url=jdbc:mysql://localhost:3306/student_portfolio
-    spring.datasource.username=your_username
-    spring.datasource.password=your_password
-    ```
-  - Go to the Boot Dashboard, right-click the project, and select Start to run the application.
-- Frontend:
-  - The frontend is built using JSP (Java Server Pages) and is served directly by the Spring Boot application.
-- Open a web browser and navigate to `http://localhost:1797/` to access the EduPortfolio Vision Hub.
+### 🛡️ Admin
 
-That's it! You've successfully set up and launched Eduportfolio Vision Hub on your local system.
+Administrators can:
 
+- log in;
+- register students and faculty;
+- view student/faculty records;
+- accept or reject student/faculty status;
+- update records;
+- delete student/faculty records;
+- view portfolio/project information.
 
+## 🔄 Application flow
+
+```text
+                 ┌───────────────┐
+                 │     ADMIN     │
+                 │ register      │
+                 │ approve/reject│
+                 │ manage users  │
+                 └───────┬───────┘
+                         │
+                         ▼
+┌─────────────┐   ┌───────────────┐   ┌─────────────┐
+│   STUDENT   │──▶│    PROJECT    │◀──│   FACULTY   │
+│             │   │   submission  │   │             │
+│ profile     │   │ feedback      │   │ profile     │
+│ projects    │   └───────┬───────┘   │ review      │
+│ portfolio   │           │            └─────────────┘
+└──────┬──────┘           ▼
+       │            ┌───────────────┐
+       └───────────▶│  PORTFOLIO    │
+                    │ role + skills │
+                    │ uploaded file │
+                    └───────────────┘
+```
+
+<p align="center">
+  <img src="assets/eduportfolio-architecture.svg" alt="EduPortfolio architecture diagram" width="100%" />
+</p>
+
+## 🧱 Architecture
+
+The current project follows a conventional Spring MVC layering:
+
+| Layer | Implementation |
+|---|---|
+| Web UI | JSP pages + CSS + Bootstrap-style components |
+| Controllers | Student / Faculty / Admin controllers |
+| Services | Student / Faculty / Admin / Project / Portfolio services |
+| Persistence | Spring Data JPA repositories |
+| ORM | Hibernate |
+| Database | MySQL |
+| Sessions | HttpSession role-specific state |
+| Packaging | WAR |
+| Runtime | Spring Boot 3.3.4 on Java 21 |
+
+## 🗂️ Domain model
+
+```text
+Student
+├── profile + credentials
+└── status
+
+Faculty
+├── profile + credentials
+└── status
+
+Project
+├── student → ManyToOne
+├── faculty → ManyToOne
+├── project metadata
+└── feedback
+
+Portfolio
+├── role
+├── skills
+└── uploaded file (BLOB)
+
+Admin
+├── username
+└── password
+```
+
+## 📦 Project submission
+
+A student submits:
+
+```text
+Project number
+      +
+Project name
+      +
+Description
+      +
+Project URL
+      +
+Faculty
+      ↓
+ProjectRepository.save(...)
+```
+
+The project stores both student and faculty relationships, allowing faculty users to retrieve faculty-linked projects and leave feedback.
+
+## 📄 Portfolio upload
+
+The student portfolio workflow stores the uploaded file as a database BLOB:
+
+```text
+Student
+  │
+  ├── role
+  ├── skills
+  └── file upload
+         │
+         ▼
+   java.sql.Blob
+         │
+         ▼
+ portfolio_table
+```
+
+The `/displayfile` route reads the BLOB and returns it as `application/pdf`.
+
+## 🔐 Authentication and status flow
+
+The application uses traditional Spring MVC sessions rather than Spring Security.
+
+```text
+Credentials
+   │
+   ▼
+Repository login query
+   │
+   ├── invalid ──▶ Login Failed
+   │
+   └── valid
+        │
+        ▼
+   status check
+        │
+   ┌────┴────┐
+   │         │
+accepted   other
+   │         │
+   ▼         ▼
+session    login page +
+created    status message
+```
+
+Students and faculty must have an **accepted** status before continuing to their role home pages.
+
+> This is a session-based academic application, not an OAuth2/OpenID Connect security architecture.
+
+## 🛠️ Technology stack
+
+### Backend
+
+- Java 21
+- Spring Boot 3.3.4
+- Spring MVC
+- Spring Data JPA
+- Hibernate ORM
+- Lombok
+- Spring Boot Mail
+- WAR packaging
+
+### Frontend
+
+- JSP
+- HTML/CSS
+- JavaScript
+- Bootstrap-style UI
+- Server-side rendering
+
+### Database
+
+- MySQL
+- JPA entity mapping
+- Hibernate schema update mode
+
+### Tooling
+
+- Maven Wrapper
+- JUnit / Spring Boot Test
+- Eclipse / Spring Tool Suite compatible project
+
+## 📁 Repository structure
+
+```text
+EDUPORTFOLIO-VISION-HUB/
+├── pom.xml
+├── mvnw
+├── mvnw.cmd
+├── LICENSE
+├── README.md
+├── assets/
+│   ├── eduportfolio-hero.svg
+│   ├── eduportfolio-architecture.svg
+│   └── eduportfolio-role-flow.svg
+│
+└── src/
+    ├── main/
+    │   ├── java/com/klef/jfsd/project/
+    │   │   ├── controller/
+    │   │   ├── model/
+    │   │   ├── repository/
+    │   │   └── service/
+    │   ├── resources/
+    │   │   └── application.properties
+    │   └── webapp/
+    │       ├── images/
+    │       ├── *.jsp
+    │       └── style.css
+    │
+    └── test/
+        └── java/com/klef/jfsd/project/
+```
+
+## ⚙️ Configuration
+
+The application is configured for MySQL on port 1797:
+
+```properties
+spring.application.name=StudentProjectAndPortfolioManagement
+server.port=1797
+
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/studentprojectandportfoliomanagement
+spring.datasource.username=root
+spring.datasource.password=root
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+
+spring.mvc.view.prefix=/
+spring.mvc.view.suffix=.jsp
+```
+
+Before deployment, move database credentials into environment variables or external configuration and avoid committing passwords.
+
+## 🚀 Run locally
+
+### Prerequisites
+
+- JDK 21
+- MySQL
+- Git
+- Optional: Eclipse / Spring Tool Suite / IntelliJ IDEA
+
+### 1. Clone
+
+```bash
+git clone https://github.com/Sai-Srinivas-P/EDUPORTFOLIO-VISION-HUB.git
+cd EDUPORTFOLIO-VISION-HUB
+```
+
+### 2. Create the database
+
+```sql
+CREATE DATABASE studentprojectandportfoliomanagement;
+```
+
+Then update `src/main/resources/application.properties` with your local MySQL credentials.
+
+### 3. Start the application
+
+Linux / macOS:
+
+```bash
+./mvnw spring-boot:run
+```
+
+Windows:
+
+```bat
+mvnw.cmd spring-boot:run
+```
+
+### 4. Open the application
+
+```text
+http://localhost:1797/
+```
+
+The root route renders `home.jsp`.
+
+## 🧪 Testing
+
+Run:
+
+```bash
+./mvnw test
+```
+
+The repository currently contains a Spring Boot application-context test. There is not yet comprehensive controller, upload-validation, or end-to-end workflow coverage.
+
+## 🧭 Useful routes
+
+| Feature | Route |
+|---|---|
+| Home | `/` |
+| Student login | `/stulogin` |
+| Student home | `/stuhome` |
+| Student profile | `/stuprofile` |
+| Add project | `/addproject` |
+| My projects | `/viewmyprojects` |
+| Add portfolio | `/addportfolio` |
+| All portfolios | `/viewallportfolios` |
+| Faculty login | `/faclogin` |
+| Faculty home | `/fachome` |
+| Faculty profile | `/facprofile` |
+| Faculty projects | `/viewallprojects` |
+| Admin login | `/adminlogin` |
+| Admin home | `/adminhome` |
+| View students | `/viewallstus` |
+| View faculty | `/viewallfacs` |
+
+## ⚠️ Current limitations
+
+The previous README described capabilities that are not visible in the current codebase. The project is better characterized as a **Java/Spring academic portfolio-management application**.
+
+Current limitations include:
+
+- no React frontend in the repository;
+- no explicit Spring Security configuration;
+- direct password storage/querying in the current domain/repository flow;
+- HttpSession-based role state;
+- database credentials committed in development configuration;
+- portfolio BLOB handling with the display endpoint assuming PDF content;
+- lightweight automated tests;
+- no production-grade migration/secret-management setup.
+
+## 🛣️ Modernization roadmap
+
+```text
+Current JSP + Session application
+            │
+            ▼
+Spring Security + password hashing
+            │
+            ▼
+DTO + validation boundaries
+            │
+            ▼
+Upload/content validation
+            │
+            ▼
+Database migrations + secret management
+            │
+            ▼
+REST API + modern frontend
+            │
+            ▼
+Portfolio analytics + notifications
+```
+
+The best next improvement is security and data-boundary hardening, not simply adding more screens.
+
+## 🎯 Interview-ready concepts
+
+This repository demonstrates:
+
+**Spring Boot → MVC → dependency injection → service layer → Spring Data JPA → Hibernate → MySQL → JSP → HttpSession → multipart upload → BLOB handling → role-based workflows → CRUD → Maven/WAR packaging**
+
+## 📜 License
+
+MIT License. See [`LICENSE`](LICENSE).
+
+## 👤 Author
+
+**Sai-Srinivas-P**  
+GitHub: https://github.com/Sai-Srinivas-P
+
+---
+
+<p align="center">
+  <strong>🎓 Build it. Review it. Showcase it.</strong>
+  <br/>
+  <sub>EduPortfolio Vision Hub connects academic work with structured project and portfolio workflows.</sub>
+</p>
